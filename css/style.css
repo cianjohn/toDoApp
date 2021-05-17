@@ -2,7 +2,7 @@ body {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    font-family: cursive
+    font-family:cursive;
     /* color: white; */
     /* background-color:; */
 }
@@ -24,8 +24,6 @@ body {
 
 /* footer css */
 #foot {
-    position: absolute;
-    bottom: 0;
     width: 100vw;
     color: whitesmoke;
 }

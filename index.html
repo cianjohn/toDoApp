@@ -50,28 +50,120 @@
             <form action="/action_page.php">
                 <fieldset>
                   <legend>Task Input:</legend>
-                  <label for="name">Name:</label>
-                  <input type="text" id="name" name="name" placeholder="Name of the person creating the task..."><br><br>
-                  <label for="description">Description:</label>
-                  <input type="text" id="description" name="description" placeholder="E.g. Email senior management"><br><br>
-                  <label for="assignedName">Assigned To:</label>
-                  <input type="text" id="assignedName" name="assigned" placeholder="John Smith"><br><br>
-                  <label for="dueBy">Due:</label>
-                  <input type="date" id="dueBy" name="dueDate"><br><br>
-                  <label for="status">Status:</label>
-                  <select name="status" id="status">
-                      <option value="toDo">To Do</option>
-                      <option value="inProgress">In Progress</option>
-                      <option value="review">Review</option>
-                      <option value="done">Done</option>
-                  </select><br><br>
-                  <input type="submit" value="Submit">
+                    <div class="mb-3">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="who's Creating the task" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" name="description" placeholder="E.g. Email senior management" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="assignedName">Assigned To:</label>
+                        <input type="text" id="assignedName" name="assigned" placeholder="John Smith" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dueBy">Due:</label>
+                        <input type="date" id="dueBy" name="dueDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status">Status:</label>
+                        <select name="status" id="status">
+                            <option value="toDo">To Do</option>
+                            <option value="inProgress">In Progress</option>
+                            <option value="review">Review</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
                 </fieldset>
-              </form> 
-          </div>
+            </form> 
+        </div>
 
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-5 col-md-3 col-lg-2">
+    
+            <div class="card">
+                <div class="card-header">
+                  <h5>Task</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Due Date:</h6><p>some other time</p></li>
+                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
+                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
+                </ul>
+              </div>
+    
+        </div>
+        <div class="col-5 col-md-3 col-lg-2">
+    
+            <div class="card">
+                <div class="card-header">
+                  <h4>Task</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Due Date:</h6><p>netx year</p></li>
+                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
+                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
+                </ul>
+              </div>
+    
+        </div>
+        <div class="col-5 col-md-3 col-lg-2">
+    
+            <div class="card">
+                <div class="card-header">
+                  Task
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Due Date:</h6><p>friday</p></li>
+                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
+                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
+                </ul>
+              </div>
+    
+        </div>
+        <div class="col-5 col-md-3 col-lg-2">
+    
+            <div class="card">
+                <div class="card-header">
+                  Task
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Due Date:</h6><p>tomorrow</p></li>
+                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
+                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
+                </ul>
+              </div>
+    
+        </div>
+        <div class="col-5 col-md-3 col-lg-2">
+    
+            <div class="card">
+                <div class="card-header">
+                  Task
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
+                  <li class="list-group-item"><h6>Due Date:</h6><p>today</p></li>
+                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
+                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
+                </ul>
+              </div>
+    
+        </div>
       </div>
-  </div>
+</div>
   
     <!-- footer section -->
   <footer id="foot" class="bg-dark">
