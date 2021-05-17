@@ -1,0 +1,46 @@
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: cursive
+    /* color: white; */
+    /* background-color:; */
+}
+
+
+
+#mainSpace {
+    min-height: 80vh;
+}
+
+
+
+
+
+
+
+
+
+
+/* footer css */
+#foot {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    color: whitesmoke;
+}
+#foot a {
+    color: whitesmoke;
+    text-decoration: none;
+} 
+#foot i {
+    font-size: 3rem;
+}
+#foot a:hover {
+    /* color: rgb(255, 8, 222); */
+    text-decoration: none;
+}
+
+#foot p {
+    padding-top: 1%;
+}
