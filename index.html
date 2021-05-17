@@ -47,24 +47,36 @@
   <div class="container shadow-lg justify-content-center" id="mainSpace">
       <div class="row justify-content-center" >
           <div class="col-10 col-md-6 col-lg-4 justify-content-center">
-            <form action="/action_page.php">
+            <form class="needs-validation" novalidate>
                 <fieldset>
                   <legend>Task Input:</legend>
                     <div class="mb-3">
                         <label for="name">Name:</label><br>
-                        <input type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control" required>
+                        <input type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control" required maxlength="20">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="description">Description:</label><br>
-                        <input type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control" required>
+                        <input type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control" required minlength="20">
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
                     </div>
                     <div class="mb-3">
                         <label for="assignedName">Assigned To:</label><br>
-                        <input type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control" required>
+                        <input type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control" required maxlength="20">
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
                     </div>
                     <div class="mb-3">
                         <label for="dueBy">Due:</label><br>
                         <input type="date" id="dueBy" name="dueDate" class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
                     </div>
                     <div class="mb-3">
                         <label for="status">Status:</label><br>
@@ -74,12 +86,18 @@
                             <option value="review">Review</option>
                             <option value="done">Done</option>
                         </select>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="colorInput" class="form-label">Color picker</label>
                         <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c" title="Choose your color">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Item</button>
+                    <button onclick="store()" type="submit" class="btn btn-primary">Add Item</button>
                 </fieldset>
             </form> 
         </div>
@@ -90,7 +108,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">An item
-                      <div class="card" hidden>
+                      <div class="card">
                     <div class="card-header">
                       Featured
                     </div>
