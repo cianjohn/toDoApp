@@ -46,45 +46,72 @@
   
   <div class="container shadow-lg justify-content-center" id="mainSpace">
       <div class="row justify-content-center" >
-          <div class="col-8 justify-content-center">
+          <div class="col-10 col-md-6 col-lg-4 justify-content-center">
             <form action="/action_page.php">
                 <fieldset>
                   <legend>Task Input:</legend>
                     <div class="mb-3">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" placeholder="who's Creating the task" required>
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="description">Description:</label>
-                        <input type="text" id="description" name="description" placeholder="E.g. Email senior management" required>
+                        <label for="description">Description:</label><br>
+                        <input type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="assignedName">Assigned To:</label>
-                        <input type="text" id="assignedName" name="assigned" placeholder="John Smith" required>
+                        <label for="assignedName">Assigned To:</label><br>
+                        <input type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="dueBy">Due:</label>
-                        <input type="date" id="dueBy" name="dueDate" required>
+                        <label for="dueBy">Due:</label><br>
+                        <input type="date" id="dueBy" name="dueDate" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="status">Status:</label>
-                        <select name="status" id="status">
+                        <label for="status">Status:</label><br>
+                        <select name="status" id="status" class="form-control">
                             <option value="toDo">To Do</option>
                             <option value="inProgress">In Progress</option>
                             <option value="review">Review</option>
                             <option value="done">Done</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="colorInput" class="form-label">Color picker</label>
+                        <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c" title="Choose your color">
+                    </div>
                     <button type="submit" class="btn btn-primary">Add Item</button>
                 </fieldset>
             </form> 
         </div>
+        <div class="col-10 col-md-6 col-lg-4 align-self-centerjustify-content-center">
+            <div class="card shadow-sm" id="taskList">
+                <div class="card-header">
+                  <h4>Task List:</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">An item
+                      <div class="card" hidden>
+                    <div class="card-header">
+                      Featured
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">An item</li>
+                      <li class="list-group-item">A second item</li>
+                      <li class="list-group-item">A third item</li>
+                    </ul>
+                  </div></li>
+                  <li class="list-group-item">A second item</li>
+                  <li class="list-group-item">A third item</li>
+                </ul>
+              </div>
+
+        </div>
 
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" id="tasks">
         <div class="col-5 col-md-3 col-lg-2">
     
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-header">
                   <h5>Task</h5>
                 </div>
@@ -100,8 +127,8 @@
         </div>
         <div class="col-5 col-md-3 col-lg-2">
     
-            <div class="card">
-                <div class="card-header">
+            <div class="card shadow-sm">
+                <div class="card-header"style="background-color:#F6FF00;">
                   <h4>Task</h4>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -116,7 +143,7 @@
         </div>
         <div class="col-5 col-md-3 col-lg-2">
     
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-header">
                   Task
                 </div>
@@ -132,7 +159,7 @@
         </div>
         <div class="col-5 col-md-3 col-lg-2">
     
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-header">
                   Task
                 </div>
@@ -148,7 +175,7 @@
         </div>
         <div class="col-5 col-md-3 col-lg-2">
     
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-header">
                   Task
                 </div>
