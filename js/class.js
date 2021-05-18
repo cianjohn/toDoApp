@@ -8,17 +8,19 @@ class Task {
         this.status = status;
         this.colour = colour;
     };
-    delete(){
-        let taskList = JSON.parse(localStorage.getItem("tasks"));
-        let index = taskList.findIndex(el => {return el.id ===String(this.id)})
-        taskList.splice(index,1)
-        localStorage.setItem("tasks", JSON.stringify(taskList));
+}
+// cant put method here cause local storage is weird
+//     delete(){
+//         let taskList = JSON.parse(localStorage.getItem("tasks"));
+//         let index = taskList.findIndex(el => {return el.id ===String(this.id)})
+//         taskList.splice(index,1)
+//         localStorage.setItem("tasks", JSON.stringify(taskList));
 
-    }
-    updateStatus(status){
-        this.status = status
-    };
-};
+//     }
+//     updateStatus(status){
+//         this.status = status
+//     };
+// };
 class TaskManager{    
     addTask(){
         let name = document.querySelector("#name").value;

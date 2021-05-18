@@ -52,63 +52,57 @@
                   <legend>Task Input:</legend>
                     <div class="mb-3">
                         <label for="name">Name:</label><br>
-                        <input type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <input required pattern="^[a-zA-z ]{1,20}$"type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control">
+                        <!-- <div id="formFeedbackName" class="invalid-feedback">
+                            nope
+                        </div> -->
                     </div>
                     <div class="mb-3">
                         <label for="description">Description:</label><br>
-                        <input type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control">
-                        <div class="valid-feedback">
-                            Looks good!
+                        <input required pattern="^[a-zA-z ,\.]{20,}$" type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control">
+                        <div class="invalid-feedback">
+                            nope
                           </div>
                     </div>
                     <div class="mb-3">
                         <label for="assignedName">Assigned To:</label><br>
-                        <input type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control">
-                        <div class="valid-feedback">
-                            Looks good!
+                        <input required pattern="^[a-zA-z ]{1,20}$" type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control">
+                        <div class="invalid-feedback">
+                            nope
                           </div>
                     </div>
                     <div class="mb-3">
                         <label for="dueBy">Due:</label><br>
-                        <input type="date" id="dueBy" name="dueDate" class="form-control">
-                        <div class="valid-feedback">
-                            Looks good!
+                        <input required pattern="^[0-9/]{10}$"type="date" id="dueBy" name="dueDate" class="form-control">
+                        <div class="invalid-feedback">
+                            nope
                           </div>
                     </div>
                     <div class="mb-3">
                         <label for="status">Status:</label><br>
                         <select name="status" id="status" class="form-control">
-                            <option value="toDo">To Do</option>
-                            <option value="inProgress">In Progress</option>
-                            <option value="review">Review</option>
-                            <option value="done">Done</option>
+                            <option value="To Do">To Do</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Review">Review</option>
+                            <option value="Done">Done</option>
                         </select>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="colorInput" class="form-label">Color picker</label>
                         <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c" title="Choose your color">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
                     </div>
                     <button onclick="store()" type="submit" class="btn btn-primary">Add Item</button>
                 </fieldset>
             </form> 
         </div>
-        <div class="col-10 col-md-6 col-lg-4 align-self-centerjustify-content-center">
+        <div class="col-10 col-md-6 col-lg-4 align-self-center justify-content-center">
             <div class="card shadow-sm" id="taskList">
                 <div class="card-header">
                   <h4>Task List:</h4>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">An item
-                      <div class="card">
+                      <div class="card" hidden>
                     <div class="card-header">
                       Featured
                     </div>
@@ -121,93 +115,14 @@
                   <li class="list-group-item">A second item</li>
                   <li class="list-group-item">A third item</li>
                 </ul>
-              </div>
+            </div>
 
         </div>
-
     </div>
+
     <div class="row justify-content-center" id="tasks">
-        <div class="col-5 col-md-3 col-lg-2">
-    
-            <div class="card shadow-sm">
-                <div class="card-header">
-                  <h5>Task</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Due Date:</h6><p>some other time</p></li>
-                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
-                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
-                </ul>
-              </div>
-    
-        </div>
-        <div class="col-5 col-md-3 col-lg-2">
-    
-            <div class="card shadow-sm">
-                <div class="card-header"style="background-color:#F6FF00;">
-                  <h4>Task</h4>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Due Date:</h6><p>netx year</p></li>
-                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
-                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
-                </ul>
-              </div>
-    
-        </div>
-        <div class="col-5 col-md-3 col-lg-2">
-    
-            <div class="card shadow-sm">
-                <div class="card-header">
-                  Task
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Due Date:</h6><p>friday</p></li>
-                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
-                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
-                </ul>
-              </div>
-    
-        </div>
-        <div class="col-5 col-md-3 col-lg-2">
-    
-            <div class="card shadow-sm">
-                <div class="card-header">
-                  Task
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Due Date:</h6><p>tomorrow</p></li>
-                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
-                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
-                </ul>
-              </div>
-    
-        </div>
-        <div class="col-5 col-md-3 col-lg-2">
-    
-            <div class="card shadow-sm">
-                <div class="card-header">
-                  Task
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><h6>Assigned To:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Assigned By:</h6><p>Robert paulson</p></li>
-                  <li class="list-group-item"><h6>Due Date:</h6><p>today</p></li>
-                  <li class="list-group-item"><h6>Status:</h6><p>To Do</p></li>
-                  <li class="list-group-item"><h6>Description:</h6><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic magni placeat illum eius? A ab libero distinctio eaque atque, amet ratione obcaecati sint consequuntur facere impedit dolorem nam totam ipsa.</p></li>
-                </ul>
-              </div>
-    
-        </div>
-      </div>
+        
+    </div>
 </div>
   
     <!-- footer section -->
