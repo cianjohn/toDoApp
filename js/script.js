@@ -5,7 +5,6 @@ if (!localStorage.getItem("tasks")){
     localStorage.setItem("tasks", "{}")
     list = JSON.parse(localStorage.getItem("tasks"))
     list.identifyer = 0
-    console.log(list)
     localStorage.setItem("tasks", JSON.stringify(list))
 }
 
@@ -22,14 +21,9 @@ function store(){
     let id = taskList.identifyer
 
     let task = new Task(id, name, description, assigned, dueDate, status, colour);
-    console.log(task)
-    let taskList = JSON.parse(localStorage.getItem("tasks"));
-    console.log(taskList)
     taskList[id]=task;
     id++
     taskList.identifyer=id
-
-    console.log(taskList)
     localStorage.setItem("tasks", JSON.stringify(taskList));
 }
 
