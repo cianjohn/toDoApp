@@ -1,32 +1,12 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
-
-
+import {Task} from "./class.js";
 
 
 if (!localStorage.getItem("tasks")){
     localStorage.setItem("tasks", "[]")
     console.log(localStorage.getItem("tasks"))
 }
-// getData()
+
+
 
 function store(){
     let name = document.querySelector("#name").value;
@@ -36,15 +16,16 @@ function store(){
     let status = document.querySelector("#status").value;
     let colour = document.querySelector("#colorInput").value;
     
-    let task = {"name": name,
-                "description": description,
-                "assigned": assigned,
-                "dueDate": dueDate,
-                "status": status,
-                "colour": colour};
+    let task = new Task(name, description, assigned, dueDate, status, colour);
     let taskList = JSON.parse(localStorage.getItem("tasks"));
     taskList.push(task);
     localStorage.setItem("tasks", JSON.stringify(taskList));
 
     // window.location.reload();
 }
+
+// let
+
+
+
+// getData()
