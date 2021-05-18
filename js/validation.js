@@ -17,7 +17,7 @@
           form.classList.add('was-validated')
         }, false)
       })
-  })
+  })()
 
 let nameInput = document.querySelector("#name")
 console.log(nameInput)

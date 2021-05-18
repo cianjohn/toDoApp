@@ -3,6 +3,7 @@
 
 if (!localStorage.getItem("tasks")){
     localStorage.setItem("tasks", "[]")
+    localStorage.setItem("id", "0")
 }
 
 
@@ -14,11 +15,14 @@ function store(){
     let dueDate = document.querySelector("#dueBy").value;
     let status = document.querySelector("#status").value;
     let colour = document.querySelector("#colorInput").value;
-    
-    let task = new Task(name, description, assigned, dueDate, status, colour);
+    let id = JSON.parse(localStorage.getItem("id"))
+
+    let task = new Task(id, name, description, assigned, dueDate, status, colour);
     let taskList = JSON.parse(localStorage.getItem("tasks"));
     taskList.push(task);
     localStorage.setItem("tasks", JSON.stringify(taskList));
+    id++
+    localStorage.setItem("id", JSON.stringify(id))
 
     // window.location.reload();
 }
