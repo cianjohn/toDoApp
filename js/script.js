@@ -1,9 +1,8 @@
-import {Task} from "./class.js";
+// import {Task} from "./class.js";
 
 
 if (!localStorage.getItem("tasks")){
     localStorage.setItem("tasks", "[]")
-    console.log(localStorage.getItem("tasks"))
 }
 
 

@@ -7,7 +7,6 @@ class Task {
         this.status = status;
         this.colour = colour;
     };
-    display();
     delete(){
         let taskList = JSON.parse(localStorage.getItem("tasks"));
         let index = taskList.findIndex(el => {return el.id ===String(this.id)})
@@ -15,13 +14,11 @@ class Task {
         localStorage.setItem("tasks", JSON.stringify(taskList));
 
     }
-        updateStatus(status){
+    updateStatus(status){
         this.status = status
     };
 };
-class TaskManager{
-    getAll()
-    
+class TaskManager{    
     addTask(){
         let name = document.querySelector("#name").value;
         let description = document.querySelector("#description").value;
@@ -38,4 +35,4 @@ class TaskManager{
 
 }
 
-export {Task};
+// export {Task};
