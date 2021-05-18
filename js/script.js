@@ -18,7 +18,8 @@ function store(){
     let dueDate = document.querySelector("#dueBy").value;
     let status = document.querySelector("#status").value;
     let colour = document.querySelector("#colorInput").value;
-    let id = JSON.parse(localStorage.getItem("tasks")).identifyer
+    let taskList = JSON.parse(localStorage.getItem("tasks"));
+    let id = taskList.identifyer
 
     let task = new Task(id, name, description, assigned, dueDate, status, colour);
     console.log(task)
