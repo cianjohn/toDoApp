@@ -9,6 +9,27 @@ class Task {
         this.colour = colour;
     };
 }
+
+
+class TaskManager{
+    constructor(){
+        this.tasks = localStorage.getItem("tasks")
+        if (!localStorage.getItem("tasks")){
+            localStorage.setItem(JSON.stringify())
+            list = JSON.parse(localStorage.getItem("tasks"))
+            list.identifyer = 0
+            localStorage.setItem("tasks", JSON.stringify(list))
+        }else 
+        {this.tasks = localStorage.getItem("tasks")}
+    }
+}
+
+
+
+
+
+
+
 // cant put method here cause local storage is weird
 //     delete(){
 //         let taskList = JSON.parse(localStorage.getItem("tasks"));
