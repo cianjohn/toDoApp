@@ -18,14 +18,14 @@
             // if (form.validity.valueMissing){
             //     form.setCustomValidity("come on dude actually write something")
             // }
-            if (form.validity.patternMismatch){
-                console.log("hi");
-              form.setCustomValidity("naa dude gotta be between 1 and 20 characters");
+            // if (form.validity.patternMismatch){
+            //     console.log("hi");
+            //   form.setCustomValidity("naa dude gotta be between 1 and 20 characters");
               
-              event.preventDefault();
-              event.stopPropagation();
-            //   form.reportValidity();
-            }
+            //   event.preventDefault();
+            //   event.stopPropagation();
+            // //   form.reportValidity();
+            // }
           }
 
   

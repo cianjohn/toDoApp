@@ -37,8 +37,9 @@ function displayCard(object){
     <li class="list-group-item"><h6>Description:</h6><p id="cardDescription"></p></li>
   </ul>
   </div>`;
-  let html = document.createElement("div");
+  const html = document.createElement("div");
   html.classList += "col-5 col-md-3 col-lg-2"
+  html.id = object.identifyer
   html.innerHTML = card
   console.log(html)
   // need to fix
@@ -64,7 +65,7 @@ function displaytasklist(object) {
 function displayAll(content, location){
   location.innerHTML = ""
   for (let i = 0; i<content.identifyer;i++){
-    location.innerHTML += displayCard(content[i])
+    location.appendChild(displayCard(content[i]))
   }
 }
 let contentspace = document.querySelector("#tasks")
