@@ -25,8 +25,7 @@ function store(){
 }
 
 function displayCard(object){
-  let card = `<div class="col-5 col-md-3 col-lg-2">
-  <div class="card shadow-sm">
+  let card = `<div class="card shadow-sm">
   <div class="card-header" style="background-color:${object.colour};">
     <h5>Task</h5>
   </div>
@@ -37,22 +36,39 @@ function displayCard(object){
     <li class="list-group-item"><h6>Status:</h6><p >${object.status}</p></li>
     <li class="list-group-item"><h6>Description:</h6><p id="cardDescription"></p></li>
   </ul>
-  </div>
   </div>`;
-  card.querySelector("#cardAssigned").innertext = object.assigned;
-  card.querySelector("#cardName").innertext = object.name;
-  card.querySelector("#cardDescription").innertext = object.description;
-  return card
+  let html = document.createElement("div");
+  html.classList += "col-5 col-md-3 col-lg-2"
+  html.innerHTML = card
+  console.log(html)
+  // need to fix
+  html.querySelector("#cardAssigned").innertext = "hi";
+  html.querySelector("#cardName").innertext = object.name;
+  html.querySelector("#cardDescription").innertext = object.description;
+  return html
+}
+function displaytasklist(object) {
+  let item = `<li class="list-group-item">An item
+  <div class="card" hidden>
+<div class="card-header">
+  Featured
+</div>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">An item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+</ul>
+</div>`
 }
 
-function displayAll(content, location, funct){
+function displayAll(content, location){
   location.innerHTML = ""
   for (let i = 0; i<content.identifyer;i++){
-    location.innerHTML += funct(content[i])
+    location.innerHTML += displayCard(content[i])
   }
 }
 let contentspace = document.querySelector("#tasks")
 let content = JSON.parse(localStorage.getItem("tasks"))
-displayAll(content, contentspace, displayCard)
+displayAll(content, contentspace) //, displayCard)
 
 // let listTaskSpace = document.querySelector("#spaceForTaskList")
