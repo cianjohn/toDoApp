@@ -92,7 +92,7 @@
                         <label for="colorInput" class="form-label">Color picker</label>
                         <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c" title="Choose your color">
                     </div>
-                    <button onsubmit="store()" type="button" class="btn btn-primary">Add Item</button>
+                    <button onclick="store()" type="button" class="btn btn-primary">Add Item</button>
                 </fieldset>
             </form> 
         </div>
@@ -104,7 +104,17 @@
                   <h4>Task List:</h4>
                 </div>
                 <ul id="spaceForTaskList"class="list-group list-group-flush">
-
+                  <li class="list-group-item">An item
+                    <div class="card" hidden>
+                  <div class="card-header">
+                    Featured
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                  </ul>
+                  </div>
                 </ul>
             </div>
 

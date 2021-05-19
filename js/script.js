@@ -5,7 +5,7 @@ if (!localStorage.getItem("tasks")){
     list = JSON.parse(localStorage.getItem("tasks"))
     list.identifyer = 0
     localStorage.setItem("tasks", JSON.stringify(list))
-}
+} else {displayAll()}
 
 function store(){
     let name = document.querySelector("#name").value;
@@ -22,6 +22,14 @@ function store(){
     id++
     taskList.identifyer=id
     localStorage.setItem("tasks", JSON.stringify(taskList));
+    displayAll()
+}
+
+function remove(id) {
+  let taskList = JSON.parse(localStorage.getItem("tasks"));
+  delete taskList[id]
+  localStorage.setItem("tasks", JSON.stringify(taskList));
+  displayAll() 
 }
 
 function displayCard(object){
@@ -35,8 +43,10 @@ function displayCard(object){
     <li class="list-group-item"><h6>Due Date:</h6><p>${object.dueDate}</p></li>
     <li class="list-group-item"><h6>Status:</h6><p >${object.status}</p></li>
     <li class="list-group-item"><h6>Description:</h6><p id="cardDescription"></p></li>
-  </ul>
-  </div>`;
+    <li class="list-group-item"><button onclick="remove(${object.id})" type="button" class="btn btn-primary">delete task</button></li>
+    </ul>
+  </div>
+  `;
   const html = document.createElement("div");
   html.classList += "col-5 col-md-3 col-lg-2"
   html.id = object.identifyer
@@ -62,14 +72,34 @@ function displaytasklist(object) {
 </div>`
 }
 
-function displayAll(content, location){
+function displayAll(){
+  let location = document.querySelector("#tasks")
+  let content = JSON.parse(localStorage.getItem("tasks"))
   location.innerHTML = ""
-  for (let i = 0; i<content.identifyer;i++){
-    location.appendChild(displayCard(content[i]))
+  for (key of Object.keys(content)){
+    // console.log(key)
+    if (key !== "identifyer"){
+      location.appendChild(displayCard(content[key]))
   }
 }
-let contentspace = document.querySelector("#tasks")
-let content = JSON.parse(localStorage.getItem("tasks"))
-displayAll(content, contentspace) //, displayCard)
+}
+
 
 // let listTaskSpace = document.querySelector("#spaceForTaskList")
+
+
+
+
+
+
+
+// delete function or arrays to help others
+// function remove(index){
+//   tasks = JSON.parse(localStorage.getItem("tasks"))
+//   tasks.splice(index, 1)
+//   localStorage.setItem("tasks", Json.stringify(tasks))
+// }
+// go into local Storage
+// get list
+// list.splice(index,1)
+// put list back in local Storage
