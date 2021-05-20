@@ -2,7 +2,7 @@
 
 if (!localStorage.getItem("tasks")){
     localStorage.setItem("tasks", "{}")
-    list = JSON.parse(localStorage.getItem("tasks"))
+    let list = JSON.parse(localStorage.getItem("tasks"))
     list.identifyer = 0
     localStorage.setItem("tasks", JSON.stringify(list))
 } else {displayAll()}
@@ -58,6 +58,7 @@ function displayCard(object){
   html.querySelector("#cardDescription").innertext = object.description;
   return html
 }
+
 function displaytasklist(object) {
   let item = `<li class="list-group-item">An item
   <div class="card" hidden>
@@ -76,12 +77,20 @@ function displayAll(){
   let location = document.querySelector("#tasks")
   let content = JSON.parse(localStorage.getItem("tasks"))
   location.innerHTML = ""
-  for (key of Object.keys(content)){
+  for (let key in content){
     // console.log(key)
     if (key !== "identifyer"){
       location.appendChild(displayCard(content[key]))
   }
 }
+}
+
+function updateStatus(id){
+  let newStatus = document.querySelector("#updateStatusSelect").value 
+  let taskList = JSON.parse(localStorage.getItem("tasks"));
+  taskList[id].status = newStatus
+  localStorage.setItem("tasks", JSON.stringify(taskList));
+  displayAll() 
 }
 
 

@@ -8,21 +8,23 @@ class Task {
         this.status = status;
         this.colour = colour;
     };
-}
+    
+};
 
+// export {Task};
 
-class TaskManager{
-    constructor(){
-        this.tasks = localStorage.getItem("tasks")
-        if (!localStorage.getItem("tasks")){
-            localStorage.setItem(JSON.stringify())
-            list = JSON.parse(localStorage.getItem("tasks"))
-            list.identifyer = 0
-            localStorage.setItem("tasks", JSON.stringify(list))
-        }else 
-        {this.tasks = localStorage.getItem("tasks")}
-    }
-}
+// class TaskManager{
+//     constructor(){
+//         this.tasks = localStorage.getItem("tasks")
+//         if (!localStorage.getItem("tasks")){
+//             localStorage.setItem(JSON.stringify())
+//             list = JSON.parse(localStorage.getItem("tasks"))
+//             list.identifyer = 0
+//             localStorage.setItem("tasks", JSON.stringify(list))
+//         }else 
+//         {this.tasks = localStorage.getItem("tasks")}
+//     }
+// }
 
 
 
@@ -36,12 +38,22 @@ class TaskManager{
 //         let index = taskList.findIndex(el => {return el.id ===String(this.id)})
 //         taskList.splice(index,1)
 //         localStorage.setItem("tasks", JSON.stringify(taskList));
+// 
 
-//     }
-//     updateStatus(status){
-//         this.status = status
-//     };
-// };
+
+
+
+// delete function or arrays to help others
+// function remove(index){
+//   tasks = JSON.parse(localStorage.getItem("tasks"))
+//   tasks.splice(index, 1)
+//   localStorage.setItem("tasks", Json.stringify(tasks))
+// }
+// go into local Storage
+// get list
+// list.splice(index,1)
+// put list back in local Storage
+
 // class TaskManager{    
 //     addTask(){
 //         let name = document.querySelector("#name").value;
@@ -59,4 +71,4 @@ class TaskManager{
 
 // }
 
-// export {Task};
+// 
