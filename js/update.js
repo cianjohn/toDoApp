@@ -11,7 +11,7 @@ class Task {
     
 };
 
-class TaskManager {
+class appManager {
     constructor(){
         this.tasks =  {identifyer: 0}
     }
@@ -86,14 +86,38 @@ class TaskManager {
             }
         }
     }
+    toggleDisplay(id) {
+        let item = document.querySelector(`#listItem${id}`);
+        let card = document.querySelector(`#listCard${id}`);
+        if (item.style.display === "none") {
+          item.style.display = "block";
+          card.style.display = "none";
+        } else {
+            item.style.display = "none";
+            card.style.display = "block";
+        }
+    }
     renderTaskList(object){
         let listItem = `
-        <div class="row">
+        <div class="row" id="listItem${object.id}">
           <div class="col">
             <h6 id="nameSpace">task for </h6>
             <h6><small class="text-muted">${object.status}</small></h6>
           </div>
           <div class="col justify-self-end text-end text-muted"><h6>${object.dueDate}</h6></div>
+        </div>
+        <div class="row" id="listCard${object.id}" style="display:none;">
+        <div class="col">
+            <div class="card">
+            <div  class="card-header">
+                <h5 id="assignment">Task For </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li id="cardDescription" class="list-group-item">Task:</li>
+                <li class="list-group-item">${object.status},${object.dueDate}</li>
+                <li id="creator" class="list-group-item">Assigned by </li>
+            </ul>
+        </div>
         </div>`
         let html = document.createElement("li");
         html.classList += "list-group-item"
@@ -101,8 +125,11 @@ class TaskManager {
         html.innerHTML = listItem
 
         html.querySelector("#nameSpace").innerText += object.assigned;
+        html.querySelector("#cardDescription").innerText += object.description
+        html.querySelector("#assignment").innerText += object.assigned
+        html.querySelector("#creator").innerText += object.name
 
-        // html.querySelector(`#list${object.id}`).addEventListener("click", (e) => {function{})
+        html.addEventListener("click", (e) => {this.toggleDisplay(object.id)})
         
         document.querySelector("#spaceForTaskList").appendChild(html)
     }
@@ -159,6 +186,6 @@ class Validation {
 
 }
 
-let start = new TaskManager
+let start = new appManager
 start.updateFromLocalStorage()
 start.displayAll()
