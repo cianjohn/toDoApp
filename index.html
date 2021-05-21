@@ -56,14 +56,14 @@
                 <form id="myform" class="needs-validation" novalidate>
                         <div class="mb-3">
                             <label for="assignedName">Assign Task To:</label><br>
-                            <input required pattern="^[a-zA-z ]{1,20}$" type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control">
+                            <input required pattern="^[a-zA-z -]{1,20}$" type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control">
                             <div class="invalid-feedback">
                                 nope
                               </div>
                         </div>  
                         <div class="mb-3">
                             <label for="description">Description:</label><br>
-                            <input required pattern="^[a-zA-Z0-9 ,\.]{20,}$" type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control">
+                            <input required pattern="^[a-zA-Z0-9 ,\.-]{20,}$" type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control">
                             <div class="invalid-feedback">
                                 nope
                               </div>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="name">Name:</label><br>
-                            <input required pattern="^[a-zA-z ]{1,20}$"type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control">
+                            <input required pattern="^[a-zA-z -]{1,20}$"type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control">
                             <div id="formFeedbackName" class="invalid-feedback">
                                 nope
                             </div>
