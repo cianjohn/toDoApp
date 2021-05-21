@@ -67,7 +67,7 @@ class TaskManager {
                         </ul>
                     </div>`;
         let html = document.createElement("div");
-        html.classList += "col-5 col-md-3 col-lg-2"
+        html.classList += "col-5 col-md-4 col-lg-3 col-xlg-2"
         html.innerHTML = card
 
         html.querySelector("#cardAssigned").innerText = object.assigned;
