@@ -284,6 +284,34 @@ class Validation {
 
 }
 
+
 let start = new appManager
 start.updateFromLocalStorage()
 start.displayAll()
+
+function validate() {
+    'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('input', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+  }
+validate()
+let form = document.querySelector("#myform")
+form.addEventListener("submit", (e) =>{
+    if (form.checkValidity()){
+    start.storeFormData()}
+    e.preventDefault()
+})
