@@ -204,7 +204,7 @@ class appManager {
         this.populateOptions(options)
     }
     displayAll(){
-        this.displayCards(this.tasks)
+        this.displayList(this.tasks)
         this.sortByStatus()
         this.getOptions()
     }
