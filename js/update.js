@@ -48,6 +48,12 @@ class appManager {
         this.updateLocalStorage()
         this.displayAll() 
     }
+    updateDueDate(id){
+        let newdueDate = this.changeDateFormat(document.querySelector("#updateDueBy").value);
+        this.tasks[id].dueDate = newdueDate
+        this.updateLocalStorage()
+        this.displayAll() 
+    }
     updateStatus(id){
         let newStatus = document.querySelector("#updateStatusSelect").value 
         this.tasks[id].status = newStatus
@@ -103,6 +109,8 @@ class appManager {
         html.querySelector("#cardName").innerText = object.name;
         html.querySelector("#cardDescription").innerText = object.description;
         html.querySelector(`#card${object.id}`).addEventListener("click", (e) => {this.deleteTask(object.id)})
+        html.querySelector(`#updatestatus${object.id}`).addEventListener("click", (e) => {this.renderModelStatus(object.id)})
+        html.querySelector(`#updateDate${object.id}`).addEventListener("click", (e) => {this.renderModelDate(object.id)})
         
         document.querySelector("#tasks").appendChild(html)
     }
@@ -191,7 +199,7 @@ class appManager {
     }
     displayAll(){
         this.displayCards(this.tasks)
-        this.displayList(this.tasks)
+        this.sortByStatus()
         this.getOptions()
     }
     getSearchName(){
@@ -208,6 +216,61 @@ class appManager {
             }
             this.displayList(content) 
         }
+    }
+    sortByStatus(){
+        let choice = document.querySelector("#sortByStatus").value
+        if (choice == "all"){
+            this.displayCards(this.tasks)
+        }
+        else{
+            let content={}
+            for (let key in this.tasks){
+                if (this.tasks[key].status == choice){
+                    content[key] = this.tasks[key]
+                }
+            }
+            this.displayCards(content) 
+        }
+    }
+    renderModelDate(id){
+        let contentspace = document.querySelector("#modelFormContent")
+        let form = `
+        <form id="updateDateForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+            <label for="updateDueBy">Due:</label><br>
+            <input required pattern="^[0-9/]{10}$" type="date" id="updateDueBy" name="dueDate" class="form-control">
+            <div class="invalid-feedback">
+                nope
+            </div>
+        </div>
+        </form>
+        `
+        contentspace.innerHTML =form
+        let savebtn = document.querySelector("#modelSaveBtn")
+        savebtn.addEventListener("click", (e) =>{
+            this.updateDueDate(id)
+        }, {once : true});
+    }
+    renderModelStatus(id){
+        let contentspace = document.querySelector("#modelFormContent")
+        let form = `
+        <form id="updateStatusForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="updateStatusSelect">Status:</label><br>
+                <select name="status" id="updateStatusSelect" class="form-select">
+                    <option value="To Do">To Do</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Review">Review</option>
+                    <option value="Done">Done</option>
+                </select>
+            </div>
+        </form>
+        `
+        contentspace.innerHTML =form
+        let savebtn = document.querySelector("#modelSaveBtn")
+        savebtn.addEventListener("click", (e) =>{
+            this.updateStatus(id)
+        }, {once : true});
     }
 }
 class Validation {

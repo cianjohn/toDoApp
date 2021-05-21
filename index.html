@@ -123,7 +123,7 @@
   <div class="col">
     <div class="card shadow-sm" id="tasksCard">
       <div class="card-header">
-          <select id="sortByStatus" class="form-select" aria-label="sort by status">
+          <select onchange="start.sortByStatus()" id="sortByStatus" class="form-select" aria-label="sort by status">
             <option value="all" selected>All</option>
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
@@ -173,18 +173,19 @@
 
   <!-- Modal -->
 <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="updateModalLabel">Update Task</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body" id="modelFormContent">
+        <!-- includes identifyer for which task is to be updated -->
+        <!-- form input for update function dynamically added  -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="modelSaveBtn">Save changes</button>
       </div>
     </div>
   </div>
