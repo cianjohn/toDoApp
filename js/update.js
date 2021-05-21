@@ -11,22 +11,25 @@ class Task {
     
 };
 
-class TaskManger {
+class TaskManager {
     constructor(){
         this.tasks =  {identifyer: 0}
     }
-
     updateLocalStorage(){
         localStorage.setItem("tasks", JSON.stringify(this.tasks))
     }
     updateFromLocalStorage(){
         this.tasks = JSON.parse(localStorage.getItem("tasks")) || {}
     }
+    changeDateFormat(date){
+        let arraydate = date.split("-")
+        return `${arraydate[2]}/${arraydate[1]}/${arraydate[0]}`
+    }
     storeFormData(){
         let name = document.querySelector("#name").value;
         let description = document.querySelector("#description").value;
         let assigned = document.querySelector("#assignedName").value;
-        let dueDate = document.querySelector("#dueBy").value;
+        let dueDate = this.changeDateFormat(document.querySelector("#dueBy").value);
         let status = document.querySelector("#status").value;
         let colour = document.querySelector("#colorInput").value;
         let id = this.tasks.identifyer
@@ -47,7 +50,7 @@ class TaskManger {
         let newStatus = document.querySelector("#updateStatusSelect").value 
         this.tasks[id].status = newStatus
         this.updateLocalStorage()
-        displayAll() 
+        this.displayAll() 
     }
     renderCard(object){
         let card = `<div class="card shadow-sm">
@@ -65,12 +68,11 @@ class TaskManger {
                     </div>`;
         let html = document.createElement("div");
         html.classList += "col-5 col-md-3 col-lg-2"
-        html.id = object.identifyer
         html.innerHTML = card
 
-        html.querySelector("#cardAssigned").innertext = object.assigned;
-        html.querySelector("#cardName").innertext = object.name;
-        html.querySelector("#cardDescription").innertext = object.description;
+        html.querySelector("#cardAssigned").innerText = object.assigned;
+        html.querySelector("#cardName").innerText = object.name;
+        html.querySelector("#cardDescription").innerText = object.description;
         html.querySelector(`#card${object.id}`).addEventListener("click", (e) => {this.deleteTask(object.id)})
         
         document.querySelector("#tasks").appendChild(html)
@@ -84,40 +86,78 @@ class TaskManger {
         }
     }
     renderTaskList(object){
+        let listItem = `
+        <div class="row">
+          <div class="col">
+            <h6 id="nameSpace">task for </h6>
+            <h6><small class="text-muted">${object.status}</small></h6>
+          </div>
+          <div class="col justify-self-end text-end text-muted"><h6>${object.dueDate}</h6></div>
+        </div>`
+        let html = document.createElement("li");
+        html.classList += "list-group-item"
+        html.id = `list${object.id}`
+        html.innerHTML = listItem
 
+        html.querySelector("#nameSpace").innerText += object.assigned;
+
+        // html.querySelector(`#list${object.id}`).addEventListener("click", (e) => {function{})
+        
+        document.querySelector("#spaceForTaskList").appendChild(html)
+    }
+    populateOptions(optionslist){
+        let list = optionslist.sort()
+        let menu = document.querySelector("#searchchoice")
+        menu.innerHTML=`<option selected value="all">All</option>`
+        for (let name of list){
+            let option = document.createElement("option")
+            option.value = option.innerText = name
+            menu.appendChild(option)
+        }
+        menu.addEventListener("change", (e) => {this.getSearchName()})
     }
     displayList(content){
-        document.querySelector("#taskslist").innerHTML = ""
+        document.querySelector("#spaceForTaskList").innerHTML = ""
         for (let key in content){
             if (key != "identifyer"){
                 this.renderTaskList(content[key])
             }
         }
     }
-    displayAll(){
-        this.displayCards(this.tasks)
-        // this.displayList(this.tasks)
-    }
-    displaySearchName(){
-        let choice = document.querySelector("#searchchoice").value
-        if (choice = "all"){
-            this.displayAll()
-        }
-        else{
-            document.querySelector("#taskslist").innerHTML = ""
-            for (let key in content){
-                if (key != "identifyer"){
-                    if (content[key].assigned == choice){
-                        this.renderTaskList(content[key])
-                    }
-                }
+    getOptions(){
+        let options = []
+        for (let key in this.tasks){
+            if ((!options.includes(this.tasks[key].assigned))&&(key != "identifyer")){
+                options.push(this.tasks[key].assigned)
             }
         }
-
+        this.populateOptions(options)
+    }
+    displayAll(){
+        this.displayCards(this.tasks)
+        this.displayList(this.tasks)
+        this.getOptions()
+    }
+    getSearchName(){
+        let choice = document.querySelector("#searchchoice").value
+        if (choice == "all"){
+            this.displayList(this.tasks)
+        }
+        else{
+            let content={}
+            for (let key in this.tasks){
+                if (this.tasks[key].assigned == choice){
+                    content[key] = this.tasks[key]
+                }
+            }
+            this.displayList(content) 
+        }
     }
 }
+class Validation {
 
+}
 
-let start = new TaskManger
+let start = new TaskManager
 start.updateFromLocalStorage()
 start.displayAll()

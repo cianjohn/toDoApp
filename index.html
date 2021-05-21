@@ -81,7 +81,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="status">Status:</label><br>
-                        <select name="status" id="status" class="form-control">
+                        <select name="status" id="status" class="form-select">
                             <option value="To Do">To Do</option>
                             <option value="In Progress">In Progress</option>
                             <option value="Review">Review</option>
@@ -101,25 +101,35 @@
         <div class="col-10 col-md-6 col-lg-4 align-self-center justify-content-center">
             <div class="card shadow-sm" id="taskList">
                 <div class="card-header">
-                  <h4>Task List:</h4>
+                  <h3>Task List:</h4>
+                    <select id="searchchoice" class="form-select" aria-label="show by assigned">
+                      <!-- populated dynamically with search by options from assigned names in each tasks -->
+                    </select>
                 </div>
                 <ul id="spaceForTaskList"class="list-group list-group-flush">
-                  <li class="list-group-item">An item
-                    <div class="card" hidden>
-                  <div class="card-header">
-                    Featured
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                  </ul>
-                  </div>
+                    <!-- space for list items of small renderiung of task -->
+                    </ul>
+                  </li>
                 </ul>
             </div>
 
         </div>
     </div>
+
+    <!-- 
+      <div class="row" hidden>
+        <div class="col">
+          <div class="card"hidden>
+      <div class="card-header">
+        Task For cian
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Assigned by cian</li>
+        <li class="list-group-item">description</li>
+        <li class="list-group-item">due by, status</li>
+      </ul>
+-->
+
 
     <div class="row justify-content-center" id="tasks">
         <!-- where all my cards will go dynamically -->
