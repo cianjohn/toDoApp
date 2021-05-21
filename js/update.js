@@ -26,6 +26,12 @@ class appManager {
         let arraydate = date.split("-")
         return `${arraydate[2]}/${arraydate[1]}/${arraydate[0]}`
     }
+    reverseDateFormatBack(date){
+        if (!date) {return date}
+        let arraydate = date.split("/")
+        return `${arraydate[2]}-${arraydate[1]}-${arraydate[0]}`
+
+    }
     storeFormData(){
         let name = document.querySelector("#name").value;
         let description = document.querySelector("#description").value;
@@ -234,11 +240,12 @@ class appManager {
     }
     renderModelDate(id){
         let contentspace = document.querySelector("#modelFormContent")
+        let date = this.reverseDateFormatBack(this.tasks[id].dueDate)
         let form = `
         <form id="updateDateForm" class="needs-validation" novalidate>
             <div class="mb-3">
             <label for="updateDueBy">Due:</label><br>
-            <input required pattern="^[0-9/]{10}$" type="date" id="updateDueBy" name="dueDate" class="form-control">
+            <input required pattern="^[0-9/]{10}$" type="date" value="${date}" id="updateDueBy" name="dueDate" class="form-control">
             <div class="invalid-feedback">
                 nope
             </div>
