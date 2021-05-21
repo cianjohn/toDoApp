@@ -68,7 +68,7 @@ class appManager {
                         </ul>
                     </div>`;
         let html = document.createElement("div");
-        html.classList += "col-5 col-md-4 col-lg-3 col-xlg-2"
+        html.classList += "col-10 col-sm-6 col-md-4 col-lg-3 col-xlg-2"
         html.innerHTML = card
 
         html.querySelector("#cardAssigned").innerText = object.assigned;
@@ -99,14 +99,14 @@ class appManager {
     }
     renderTaskList(object){
         let listItem = `
-        <div class="row" id="listItem${object.id}">
+        <div data-toggle="tooltip" title="show more" class="row" id="listItem${object.id}">
           <div class="col">
             <h6 id="nameSpace">task for </h6>
             <h6><small class="text-muted">${object.status}</small></h6>
           </div>
           <div class="col justify-self-end text-end text-muted"><h6>${object.dueDate}</h6></div>
         </div>
-        <div class="row" id="listCard${object.id}" style="display:none;">
+        <div data-toggle="tooltip" title="show less" class="row" id="listCard${object.id}" style="display:none;">
         <div class="col">
             <div class="card">
             <div  class="card-header">
@@ -114,7 +114,7 @@ class appManager {
             </div>
             <ul class="list-group list-group-flush">
                 <li id="cardDescription" class="list-group-item">Task:</li>
-                <li class="list-group-item">${object.status},${object.dueDate}</li>
+                <li class="list-group-item">${object.status};${object.dueDate}</li>
                 <li id="creator" class="list-group-item">Assigned by </li>
             </ul>
         </div>
