@@ -41,6 +41,7 @@ class appManager {
 
         this.updateLocalStorage()
         this.displayAll()
+        document.getElementById("myform").reset()
     }
     deleteTask(id) {
         delete this.tasks[id]
@@ -54,17 +55,44 @@ class appManager {
         this.displayAll() 
     }
     renderCard(object){
-        let card = `<div class="card shadow-sm">
+        let card = `<div class="card shadow-sm" style="margin-top: 1vh;">
                     <div class="card-header" style="background-color:${object.colour};">
-                    <h5>Task</h5>
+                    <div class="row">
+                    <div class="col"><h5>Task</h5></div>
+                    <div class="col text-end"><button id="card${object.id}" type="button" class="btn btn-secondary">delete task</button></div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><h6>Assigned To:</h6><p id="cardAssigned"></p></li>
-                        <li class="list-group-item"><h6>Assigned By:</h6><p id="cardName"></p></li>
-                        <li class="list-group-item"><h6>Due Date:</h6><p>${object.dueDate}</p></li>
-                        <li class="list-group-item"><h6>Status:</h6><p >${object.status}</p></li>
-                        <li class="list-group-item"><h6>Description:</h6><p id="cardDescription"></p></li>
-                        <li class="list-group-item"><button id="card${object.id}" type="button" class="btn btn-primary">delete task</button></li>
+                    
+                    </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                            <h6>Assigned To:</h6><p id="cardAssigned"></p>
+                            </li>
+                            <li class="list-group-item">
+                            <h6>Description:</h6><p id="cardDescription"></p>
+                            </li>
+                            <li class="list-group-item">
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Due Date:</h6><p>${object.dueDate}</p>
+                                </div>
+                                <div class="col text-end">
+                                <button id="updateDate${object.id}" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#updateModal" style="font-size:1.3rem;"><i class="bi bi-pencil-square"></i></button>
+                                </div>
+                            </div>
+                            </li>
+                            <li class="list-group-item">
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Status:</h6><p >${object.status}</p>
+                                </div>
+                                <div class="col text-end">
+                                <button id="updatestatus${object.id}" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#updateModal" style="font-size:1.3rem;"><i class="bi bi-pencil-square"></i></button>
+                                </div>
+                            </div>
+                            </li>
+                            <li class="list-group-item">
+                                <h6>Assigned By:</h6><p id="cardName"></p>
+                            </li>
                         </ul>
                     </div>`;
         let html = document.createElement("div");

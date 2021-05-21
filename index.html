@@ -3,7 +3,7 @@
 <head>
   
   <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'> -->
-    <script src="https://use.fontawesome.com/10bf11ff6f.js"></script>
+    <!-- <script src="https://use.fontawesome.com/10bf11ff6f.js"></script> -->
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <!-- bootstrap stylesheet -->
@@ -48,53 +48,57 @@
       <div class="row justify-content-center" >
           <div class="col-10 col-md-6 col-lg-4 justify-content-center">
             <!-- my input form -->
-            <form class="needs-validation" novalidate>
-                <fieldset>
-                  <legend>Task Input:</legend>
-                    <div class="mb-3">
-                        <label for="name">Name:</label><br>
-                        <input required pattern="^[a-zA-z ]{1,20}$"type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control">
-                        <!-- <div id="formFeedbackName" class="invalid-feedback">
-                            nope
-                        </div> -->
-                    </div>
-                    <div class="mb-3">
-                        <label for="description">Description:</label><br>
-                        <input required pattern="^[a-zA-Z0-9 ,\.]{20,}$" type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control">
-                        <div class="invalid-feedback">
-                            nope
-                          </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="assignedName">Assigned To:</label><br>
-                        <input required pattern="^[a-zA-z ]{1,20}$" type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control">
-                        <div class="invalid-feedback">
-                            nope
-                          </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dueBy">Due:</label><br>
-                        <input required pattern="^[0-9/]{10}$"type="date" id="dueBy" name="dueDate" class="form-control">
-                        <div class="invalid-feedback">
-                            nope
-                          </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="status">Status:</label><br>
-                        <select name="status" id="status" class="form-select">
-                            <option value="To Do">To Do</option>
-                            <option value="In Progress">In Progress</option>
-                            <option value="Review">Review</option>
-                            <option value="Done">Done</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="colorInput" class="form-label">Color picker</label>
-                        <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c" title="Choose your color">
-                    </div>
-                    <button onclick="start.storeFormData()" type="button" class="btn btn-primary">Add Item</button>
-                </fieldset>
-            </form> 
+            <div class="card shadow-sm" id="cardForm">
+              <div class="card-header">
+                <h3>Add New Task Form</h3>
+              </div>
+              <div class="card-body">
+                <form id="myform" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="name">Name:</label><br>
+                            <input required pattern="^[a-zA-z ]{1,20}$"type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control">
+                            <!-- <div id="formFeedbackName" class="invalid-feedback">
+                                nope
+                            </div> -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="description">Description:</label><br>
+                            <input required pattern="^[a-zA-Z0-9 ,\.]{20,}$" type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control">
+                            <div class="invalid-feedback">
+                                nope
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="assignedName">Assigned To:</label><br>
+                            <input required pattern="^[a-zA-z ]{1,20}$" type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control">
+                            <div class="invalid-feedback">
+                                nope
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dueBy">Due:</label><br>
+                            <input required pattern="^[0-9/]{10}$"type="date" id="dueBy" name="dueDate" class="form-control">
+                            <div class="invalid-feedback">
+                                nope
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="status">Status:</label><br>
+                            <select name="status" id="status" class="form-select">
+                                <option value="To Do">To Do</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Review">Review</option>
+                                <option value="Done">Done</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="colorInput" class="form-label">Color picker</label>
+                            <input type="color" class="form-control form-control-color" id="colorInput" value="#563d7c" title="Choose your color">
+                        </div>
+                        <button onclick="start.storeFormData()" type="button" class="btn btn-primary">Add Item</button>
+                </form>
+              </div>
+            </div> 
         </div>
 
         <!-- a smaller card for a list of tasks -->
@@ -115,25 +119,27 @@
 
         </div>
     </div>
-
-    <!-- 
-      <div class="row" style="display:none;">
-        <div class="col">
-          <div class="card"hidden>
+<div class="row">
+  <div class="col">
+    <div class="card shadow-sm" id="tasksCard">
       <div class="card-header">
-        Task For cian
+          <select id="sortByStatus" class="form-select" aria-label="sort by status">
+            <option value="all" selected>All</option>
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Review">Review</option>
+            <option value="Done">Done</option>
+          </select>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Assigned by cian</li>
-        <li class="list-group-item">description</li>
-        <li class="list-group-item">due by, status</li>
-      </ul>
--->
-
-
-    <div class="row justify-content-center" id="tasks">
-        <!-- where all my cards will go dynamically -->
+      <div class="card-body">
+        <div class="row justify-content-center" id="tasks">
+                <!-- where all my cards will go dynamically -->
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+    
 </div>
   
     <!-- footer section -->
@@ -146,24 +152,43 @@
             </div>
             <div class="row " id="linkdin">
               <div class="col text-center">
-                <a href="https://www.linkedin.com/in/cian-fairchild-walker/" target="_blank"><i class="fa fa-linkedin-square" role="img" aria-label="linkedin"></i>Linkedin</a>
+                <a href="https://www.linkedin.com/in/cian-fairchild-walker/" target="_blank"><i class="bi bi-linkedin"></i>Linkedin</a>
               </div>
               <div class="col text-center">
-                <a href="https://github.com/cianjohn" target="_blank"><i class="fa fa-github"></i>GitHub</a>
+                <a href="https://github.com/cianjohn" target="_blank"><i class="bi bi-github"></i>GitHub</a>
               </div>
               <div class="col-3 col-sm text-center">
-                <a href="#" target="_blank"><i class="fa fa-file" aria-hidden="true"></i>
+                <a href="#" target="_blank"><i class="bi bi-file-earmark-person-fill"></i>
                   CV</a>
               </div>
             </div>
             <div class="row">
                 <div class="col text-center">
-                  <a href="#"><i class="fa fa-arrow-circle-up" style="font-size: 2rem;" role="img" aria-label="back to top"></i></a>
+                  <a href="#"><i class="bi bi-arrow-up-circle-fill"style="font-size: 2rem;"></i></a>
                 </div>
             </div>
           </div>
           <div class="col-1"></div>
   </footer>
+
+  <!-- Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <script src="js/update.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>

@@ -14,7 +14,7 @@ body {
 }
 
 
-#taskList, #tasks{
+#taskList, #tasks, #cardForm, #tasksCard{
     margin-top: 3vh;
 }
 
