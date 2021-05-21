@@ -22,6 +22,7 @@ class TaskManager {
         this.tasks = JSON.parse(localStorage.getItem("tasks")) || {}
     }
     changeDateFormat(date){
+        if (!date) {return date}
         let arraydate = date.split("-")
         return `${arraydate[2]}/${arraydate[1]}/${arraydate[0]}`
     }
