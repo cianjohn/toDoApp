@@ -17,6 +17,10 @@ body {
 #taskList, #tasks, #cardForm, #tasksCard{
     margin-top: 3vh;
 }
+.scrollCard {
+    overflow-y: auto;
+    max-height: 533px;
+}
 
 
 

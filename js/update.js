@@ -4,11 +4,16 @@ class Task {
         this.name = name;
         this.assigned = assigned;
         this.description = description;
-        this.dueDate = due;
+        this.dueDate = this.changeDateFormat(due);
+        this.DateInfo = new Date(due)
         this.status = status;
         this.colour = colour;
     };
-    
+    changeDateFormat(date){
+        if (!date) {return date}
+        let arraydate = date.split("-")
+        return `${arraydate[2]}/${arraydate[1]}/${arraydate[0]}`
+    }
 };
 
 class appManager {
@@ -21,11 +26,6 @@ class appManager {
     updateFromLocalStorage(){
         this.tasks = JSON.parse(localStorage.getItem("tasks")) || {}
     }
-    changeDateFormat(date){
-        if (!date) {return date}
-        let arraydate = date.split("-")
-        return `${arraydate[2]}/${arraydate[1]}/${arraydate[0]}`
-    }
     reverseDateFormatBack(date){
         if (!date) {return date}
         let arraydate = date.split("/")
@@ -36,7 +36,7 @@ class appManager {
         let name = document.querySelector("#name").value;
         let description = document.querySelector("#description").value;
         let assigned = document.querySelector("#assignedName").value;
-        let dueDate = this.changeDateFormat(document.querySelector("#dueBy").value);
+        let dueDate = document.querySelector("#dueBy").value;
         let status = document.querySelector("#status").value;
         let colour = document.querySelector("#colorInput").value;
         let id = this.tasks.identifyer
@@ -280,7 +280,37 @@ class appManager {
         }, {once : true});
     }
 }
+
+
 class Validation {
+    validateName(id){
+        input = document.querySelector(`#${id}`)
+        if (input.value.length < 20){
+            if (input.patternMismatch){
+                input.classList.add("is-invalid")
+                let feedback = document.createElement("div")
+                feedback.classList.add("invalid-feedback")
+                feedback.innerText("special character not allowed")
+            }
+            else if (input.valueMissing){
+                input.classList.add("is-invalid")
+                let feedback = document.createElement("div")
+                feedback.classList.add(nvalid-feedback)
+                feedback.innerText("input required")
+            }
+
+
+        }
+        else {
+            input.classList.add("is-invalid")
+                let feedback = document.createElement("div")
+                feedback.classList.add("invalid-feedback")
+                feedback.innerText("input required")
+
+        }
+    }
+
+
 
 }
 
@@ -289,29 +319,15 @@ let start = new appManager
 start.updateFromLocalStorage()
 start.displayAll()
 
-function validate() {
-    'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('input', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-  }
-validate()
+// validation event listeners
 let form = document.querySelector("#myform")
+form.addEventListener('input', function (event) {
+    form.classList.add('was-validated')
+      }, false)
 form.addEventListener("submit", (e) =>{
     if (form.checkValidity()){
-    start.storeFormData()}
+        start.storeFormData()}
     e.preventDefault()
 })
