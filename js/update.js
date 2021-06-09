@@ -5,7 +5,7 @@ class Task {
         this.assigned = assigned;
         this.description = description;
         this.dueDate = this.changeDateFormat(due);
-        // this.DateInfo = new Date(due)
+        // this.DateInfo = new Date(due)  // startedd implementation of a sort by date function-- need a format with which to compare, this is my first option.
         this.status = status;
         this.colour = colour;
     };
@@ -24,7 +24,7 @@ class appManager {
         localStorage.setItem("tasks", JSON.stringify(this.tasks))
     }
     updateFromLocalStorage(){
-        this.tasks = JSON.parse(localStorage.getItem("tasks")) || {}
+        this.tasks = JSON.parse(localStorage.getItem("tasks")) || {identifyer: 0}
     }
     changeDateFormat(date){
         if (!date) {return date}
