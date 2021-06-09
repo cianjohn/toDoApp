@@ -59,14 +59,14 @@
                             <label for="assignedName">Assign Task To:</label><br>
                             <input required pattern="^[a-zA-z -]{1,20}$" type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control">
                             <div class="invalid-feedback">
-                                nope <!-- or something meaningful like, please only use letters spaces and hyphens, and keep it under 20 char   -->
+                                must be between 1 and 20 characters, can contain spaces and hyphens.<!-- or something meaningful like, please only use letters spaces and hyphens, and keep it under 20 char   -->
                               </div>
                         </div>  
                         <div class="mb-3">
                             <label for="description">Description:</label><br>
-                            <textarea required pattern="^[a-zA-Z0-9 ,\.-]{5,200}$" type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control"></textarea>
+                            <textarea required pattern="^[a-zA-Z0-9 ,\.-]{1,200}$" type="text" id="description" name="description" placeholder="E.g. Email senior management" class="form-control"></textarea>
                             <div class="invalid-feedback">
-                                nope
+                              must be between 1 and 200 characters, can contain spaces, hyphens, commas's, and full stops. 
                               </div>
                         </div>
                         <div class="mb-3">
@@ -80,7 +80,7 @@
                             <label for="name">Name:</label><br>
                             <input required pattern="^[a-zA-z -]{1,20}$"type="text" id="name" name="name" placeholder="who's Creating the task" class="form-control">
                             <div id="formFeedbackName" class="invalid-feedback">
-                                nope
+                              must be between 1 and 20 characters, can contain spaces and hyphens.
                             </div>
                         </div>
                         <div class="mb-3">
