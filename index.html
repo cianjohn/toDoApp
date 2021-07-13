@@ -19,31 +19,28 @@
     <title>To DO APP</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">logo</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="https://cianjohn.com"><img src="../img/favicon.png" alt="logo" style="width: 20%;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+    </button>
+    <div class="nav justify-content-md-end collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active disabled"  href="#">something</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">something else</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="...">another thing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="...">one more</a>
-          </li>
-          
+        <li class="nav-link">
+            <a class="nav-link" href="./Bio/">Bio</a>
+        </li>
+        <li class="nav-link">
+            <a class="nav-link active"  href="#">Project</a>
+        </li>
+        <li class="nav-link">
+            <a class="nav-link disabled" href="./Contact/">Contact</a>
+        </li>
+        
         </ul>
-      </div>
     </div>
-  </nav>
+    </div>
+</nav>
   
   <div class="container shadow-lg justify-content-center" id="mainSpace">
       <div class="row justify-content-center" >
@@ -59,7 +56,7 @@
                             <label for="assignedName">Assign Task To:</label><br>
                             <input required pattern="^[a-zA-z -]{1,20}$" type="text" id="assignedName" name="assigned" placeholder="John Smith" class="form-control">
                             <div class="invalid-feedback">
-                                must be between 1 and 20 characters, can contain spaces and hyphens.<!-- or something meaningful like, please only use letters spaces and hyphens, and keep it under 20 char   -->
+                                must be between 1 and 20 characters, can contain spaces and hyphens.
                               </div>
                         </div>  
                         <div class="mb-3">
